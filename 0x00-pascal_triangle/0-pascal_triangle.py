@@ -3,6 +3,7 @@
 Python script to contain a function to generate a Pascal Triangle
 """
 
+
 def pascal_triangle(n):
     """ Returning a list of lists of integers
     that represents the pascal's triangle of n. """
