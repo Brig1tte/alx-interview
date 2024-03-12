@@ -1,16 +1,23 @@
+#!/usr/bin/python3
 def pascal_triangle(n):
-    # Funct returns an empty list if n <= 0
-    if n <= 0:
-        return []
+    """ Representing the pascal's triangle of n. """
+    # Define matrix
+    matrix = []
 
-    # Funct initializes the first row of the triangle
-    triangle = [[1]]
+    # n stands for number of rows so we will iterate n times
+    for x in range(n):
+        # Define rows
+        rows = []
 
-    # Funct generates the rest of the triangle
-    for a in range(1, n):
-        # Funct to initialize the next row with a 1
-        next_row = [1]
+        for y in range(x + 1):
+            # Find the combination of x and y
+            result = comb(x, y)
 
-        # Funct generates the middle numbers of the row
-        for b in range(1, a):
-            # Middle numbers are the sum of the two numbers above
+            # Append result to inner list
+            rows.append(result)
+
+        # Append inner list to matrix
+        matrix.append(rows)
+
+    # Return list of list
+    return matrix
