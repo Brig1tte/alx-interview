@@ -1,23 +1,37 @@
 #!/usr/bin/python3
+"""
+Python script to contain a function to generate a Pascal Triangle
+"""
+
 def pascal_triangle(n):
-    """ Representing the pascal's triangle of n. """
-    # Define matrix
-    matrix = []
+    """ Returning a list of lists of integers
+    that represents the pascal's triangle of n. """
+    rows = []
+    if n <= 0:
+        return rows
 
-    # n stands for number of rows so we will iterate n times
     for x in range(n):
-        # Define rows
-        rows = []
+        # Check if it's the first row
+        if x == 0:
+            rows.append([1])
+            continue
 
-        for y in range(x + 1):
-            # Find the combination of x and y
-            result = comb(x, y)
+        # copy the contents of the previous row
+        prev = rows[x - 1].copy()
 
-            # Append result to inner list
-            rows.append(result)
+        # Declare a container for the new row and append 1
+        row = []
+        row.append(1)
 
-        # Append inner list to matrix
-        matrix.append(rows)
+        # Loop through the contents of the previous row, adding up
+        # the value at index and value at next index
+        y = 0
+        while y < x - 1:
+            row.append(prev[y] + prev[y + 1])
+            y += 1
 
-    # Return list of list
-    return matrix
+        # Append 1 and add to list of rows
+        row.append(1)
+        rows.append(row)
+
+    return rows
