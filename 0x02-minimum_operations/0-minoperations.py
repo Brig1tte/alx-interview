@@ -1,6 +1,9 @@
 #!/usr/bin/python3
-""" Bash script to execute only two operations in this file: Copy All and
-Paste. If n is impossible to achieve, return 0 else return an Integer """
+"""
+Bash script to execute only two operations: Copy All and Paste.
+If n is impossible to achieve, return 0 else return an Integer.
+"""
+
 
 def minOperations(n: int) -> int:
     """ Funct to calculate the least number of opreations needed to
