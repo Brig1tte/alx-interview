@@ -1,24 +1,27 @@
 #!/usr/bin/python3
 """
-Bash script to execute only two operations: Copy All and Paste.
-If n is impossible to achieve, return 0 else return an Integer.
+This bash script module finds the minimum operations to duplicate
+a letter in a file
 """
 
 
 def minOperations(n: int) -> int:
-    """ Funct to calculate the least number of opreations needed to
-    result in exactly "n" "H" characters """
+    """ Funct to calculate fewer numb of opreations required to
+    result in exactly "n" "H" characters
 
+    Return:
+        The minimum number of operations possible
+    """
     operations: int = 0
-    divs: int = 2
+    divisor: int = 2
 
     if n <= 1:
         return 0
     while n > 1:
-        if n % divs == 0:
-            operations += divs
-            n /= divs
+        if n % divisor == 0:
+            operations += divisor
+            n /= divisor
         else:
-            divs += 1
+            divisor += 1
 
     return operations
