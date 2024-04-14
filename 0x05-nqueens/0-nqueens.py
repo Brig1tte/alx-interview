@@ -1,6 +1,5 @@
 #!/usr/bin/python3
 """ A script to solve the N queens problem """
-
 import sys
 
 
