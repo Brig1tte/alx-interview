@@ -1,29 +1,17 @@
 #!/usr/bin/node
+
 const request = require('request');
-const ID = process.argv[2];
-const url = `https://swapi-api.alx-tools.com/api/films/${ID}/`;
 
-function getCharacter (listChar, index) {
-  if (index === listChar.length) {
-    return;
-  }
-  request(`${listChar[index]}`, (error, response, body) => {
-    if (error) {
-      console.log(error);
-    } else {
-      const character = JSON.parse(response.body);
-      console.log(character.name);
-      getCharacter(listChar, index + 1);
-    }
-  });
-}
-
-request(url, (error, response, body) => {
-  if (error) {
-    console.log(error);
-  } else {
-    const film = JSON.parse(response.body);
-    const listChar = film.characters;
-    getCharacter(listChar, 0);
-  }
+request('https://swapi-api.hbtn.io/api/films/' + process.argv[2], function (err, res, body) {
+  if (err) throw err;
+  const actors = JSON.parse(body).characters;
+  exactOrder(actors, 0);
 });
+const exactOrder = (actors, x) => {
+  if (x === actors.length) return;
+  request(actors[x], function (err, res, body) {
+    if (err) throw err;
+    console.log(JSON.parse(body).name);
+    exactOrder(actors, x + 1);
+  });
+};
