@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-""" A script to solve the N queens problem """
+""" N queens """
 import sys
 
 
@@ -29,7 +29,7 @@ def queens(n, i=0, a=[], b=[], c=[]):
 
 
 def solve(n):
-    """ solve """
+    """ solution to solve n """
     k = []
     i = 0
     for solution in queens(n, 0):
